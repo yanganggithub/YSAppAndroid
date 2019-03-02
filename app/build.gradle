@@ -1,8 +1,10 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.mobile.cms.ysappandroid"
         minSdkVersion 16
@@ -25,17 +27,21 @@ android {
 }
 
 dependencies {
-    compile "com.facebook.fresco:fresco:${FRESCO_VERSION}"
-    compile 'io.reactivex:rxjava:1.1.6'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'com.zhusx:core:0.1.0'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile "com.android.support:support-v4:${COMM_VERSION}"
-    compile 'com.jakewharton:butterknife:8.4.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation "com.facebook.fresco:fresco:${FRESCO_VERSION}"
+    implementation 'io.reactivex:rxjava:1.1.6'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'com.zhusx:core:0.1.0'
+    implementation "com.android.support:appcompat-v7:${COMM_VERSION}"
+    implementation "com.android.support:support-v4:${COMM_VERSION}"
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    kapt 'com.jakewharton:butterknife-compiler:8.4.0'
     //retrofit
-    compile "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
-    compile "com.squareup.retrofit2:adapter-rxjava:${RETROFIT_VERSION}"
-    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:adapter-rxjava:${RETROFIT_VERSION}"
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
